@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="value1" id="value1" onkeyup="getresult(this)">
+    <br>
+    <div id="dispresult"></div>
+</body>
+</html>
+<script>
+    function getresult(a){
+        // console.log(a);
+        // console.log(a.value);
+        var marks = 60;
+        // console.log(marks);
+        var marks = a.value
+        // console.log(marks);
+        // if(marks > 50){
+        //     document.getElementById("dispresult").innerText = "pass"
+        // }
+        // if(marks >= 50){
+        //     document.getElementById("dispresult").innerText = "pass"
+        // }
+        // if(marks >= 50){
+        //     document.getElementById("dispresult").innerText = "pass"
+        // }
+        // else{
+        //     document.getElementById("dispresult").innerText = "Try again"
+
+        // }
+        if(marks >= 50  && marks < 60){
+            document.getElementById("dispresult").innerText = "pass class"
+        }
+        else if (marks >= 60 && marks < 70){
+            document.getElementById("dispresult").innerText = "first class"
+
+        }
+        else if (marks >= 70 && marks < 80){
+            document.getElementById("dispresult").innerText = "Dist"
+
+        }
+        else if (marks >= 80 && marks < 90){
+            document.getElementById("dispresult").innerText = "Dist+"
+
+        }
+        else if (marks >= 90 && marks < 100){
+            document.getElementById("dispresult").innerText = "Dist++"
+
+        }
+        else{
+            document.getElementById("dispresult").innerText = "Try again"
+
+        }
+        
+    }
+</script>
