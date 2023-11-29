@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
 
     <script>
 
-        x = 3, y = 126, z = 119.6, a = 114
+     const obj = new Promise((r,e)=>{
 
-        max = (x > y && x > z && x > a) ? x : (y > z && y > a) ? y : (z > a) ? z : a;
+        if(1!=1)
+        {
+           return (r("Success..!..Connected"))
+        }
+        else{
+            return (e("Error..!....diconnected"))
+        }
 
-        document.write(max)
+     })
 
+     console.log(obj)
 
     </script>
-
+    
 </body>
-
 </html>
