@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-size: 20px;
+        font-family: cursive;
+    }
+
+    form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #000;
+        height: 200px;
+    }
+
+    label {
+        padding: 20px;
+    }
+
+    input {
+        margin: 10px;
+        outline: none;
+    }
+
+    #btn {
+        display: block;
+        margin: 0 auto;
+        padding: 3px 20px;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+
+    <form id="myForm">
+        <div class="main">
+            <label>Frist Name</label>
+            <input type="text" id="inp1">
+        </div>
+
+        <div class="main">
+            <label>Last Name</label>
+            <input type="text" id="inp2">
+        </div>
+
+        <input type="submit" value="Submit" id="btn">
+        <!-- <button id="btn">Submit</button> -->
+    </form>
+
+    <script>
+
+
+        var button1 = document.createElement("btn");
+
+        var myFrm = document.getElementById("myForm");
+
+        myFrm.addEventListener("submit", GetText);
+
+        function GetText(e) {
+            e.preventDefault();
+            var input1 = document.getElementById("inp1").value;
+            var input2 = document.getElementById("inp2").value;
+
+            fetch("https://jsonplaceholder.typicode.com/posts", {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify({ "title": input1, "body": input2 }),
+            })
+                .then((res) => {
+                    return res.json()
+                })
+                .then((data) => {
+                    document.write(data)
+                    // console.log(data);
+                })
+                .catch((err) => {
+                    document.write((err.message));
+                });
+
+        }
+    </script>
+</body>
+
+</html>

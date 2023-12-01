@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn">Get</button>
+
+    <div id="main">
+
+    </div>
+
+    <script>
+
+        var button = document.getElementById("btn");
+
+        button.addEventListener("click", GetText);
+
+        function GetText() {
+
+            fetch("https://jsonplaceholder.typicode.com/photos")
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
+                    var header = "<h1> API Data </h1> <table> <tr>"
+
+                    data.map((p) => {
+
+                        header = header + `
+                        
+                        <td>ID</td>
+                        <td>Title</td>
+                        <td>Url</td>
+                        <td>thumbnailUrl</td>
+                        </tr>
+
+                        <tr>
+                            <td>${p.id}</td>
+                            <td>${p.title}</td>
+                            <td><img src =${p.url}  height="100"></td>
+                            <td><img src =${p.thumbnailUrl}  height="100"></td>
+                        </tr>
+                        `
+                    })
+                    document.getElementById("main").innerHTML = header;
+                })       
+                .catch((err) => { console.log(err.message) })
+            }
+
+    </script>
+
+</body>
+
+</html>

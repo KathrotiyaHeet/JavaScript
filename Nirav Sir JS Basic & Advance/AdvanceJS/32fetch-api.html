@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
 
     <button id="btn">Get Text</button>
@@ -15,73 +17,65 @@
 
     <script>
 
-       const btn1 =  document.querySelector('#btn');
-       const btn2 =  document.querySelector('#btn2');
-       const btn3 =  document.querySelector('#btn3');
+        const btn1 = document.querySelector('#btn');
+        const btn2 = document.querySelector('#btn2');
+        const btn3 = document.querySelector('#btn3');
 
-    //    fetch("sample.txt")
-    //    .then((res)=>{
-    //     return res.text();
-    //    })
-    //    .then((data)=>{
-    //     console.log(data)
-    //    })
-    //    .catch((err)=>{
+        //    fetch("sample.txt")
+        //    .then((res)=>{
+        //     return res.text();
+        //    })
+        //    .then((data)=>{
+        //     console.log(data)
+        //    })
+        //    .catch((err)=>{
 
-    //     console.log(err.message)
-    //    })
-    
+        //     console.log(err.message)
+        //    })
 
-     
+        btn1.addEventListener("click", GetText)
+        btn2.addEventListener("click", GetJSON)
+        btn3.addEventListener("click", GetAPI)
 
-       btn1.addEventListener("click",GetText)
-       btn2.addEventListener("click",GetJSON)
-       btn3.addEventListener("click",GetAPI)
-       
-
-        function GetText()
-        {
+        function GetText() {
             fetch("sample.txt")
-            .then((res)=>{
-                return res.text();
-            })
-            .then((data)=>{
-                console.log(data)
-                document.getElementById('res').innerHTML = data
-            })
-            .catch((err)=>{
+                .then((res) => {
+                    return res.text();
+                })
+                .then((data) => {
+                    console.log(data)
+                    document.getElementById('res').innerHTML = data
+                })
+                .catch((err) => {
 
-                console.log(err.message)
-            })
-                }
+                    console.log(err.message)
+                })
+        }
 
+        function GetJSON() {
+            fetch("oBaapRe.json")
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
 
-
-                function GetJSON()
-                {
-                    fetch("oBaapRe.json")
-                    .then((res)=>{
-                        return res.json();
-                    })
-                    .then((data)=>{
-
-                        console.log(data)
-                    })
-                }
+                    console.log(data)
+                })
+        }
 
 
-              function GetAPI()
-              {
-                fetch("https://jsonplaceholder.typicode.com/users")
-                .then((res)=>{
-                        return res.json();
-                    })
-                    .then((data)=>{
+        function GetAPI() {
+            fetch("https://jsonplaceholder.typicode.com/users")
+                .then((res) => {
+                    return res.json();
+                })
+                .then((data) => {
 
-                        console.log(data)
-                    })
-              }
+                    console.log(data)
+                })
+        }
     </script>
-    
+
 </body>
+
 </html>
